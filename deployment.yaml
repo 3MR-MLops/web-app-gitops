@@ -5,7 +5,7 @@
 # ── Frontend ──────────────────────────────────────────────────────────────────
 frontend:
   image: webapp-frontend
-  tag: "v1"
+  tag: "v17"
 
 # ── Backend Microservices ────────────────────────────────────────────────────
 user-service:
