@@ -18,7 +18,7 @@ catalog-service:
 
 cart-service:
   image: webapp-cart-service
-  tag: "v1"
+  tag: "v3"
 
 order-service:
   image: webapp-order-service
