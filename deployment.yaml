@@ -26,4 +26,4 @@ order-service:
 
 payment-service:
   image: webapp-payment-service
-  tag: "v1"
+  tag: "v2"
