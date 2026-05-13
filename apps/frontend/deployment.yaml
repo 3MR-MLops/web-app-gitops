@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 3mrimlops/webapp-frontend:v2
+          image: shopscale-frontend:v1
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
           resources:
