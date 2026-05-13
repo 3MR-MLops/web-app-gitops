@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+  namespace: ecommerce-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+    spec:
+      containers:
+      - name: payment-service
+        image: 644981759771.dkr.ecr.us-east-1.amazonaws.com/prod-payment-service:latest
+        ports:
+        - containerPort: 3005
+        env:
+        - name: PORT
+          value: "3005"
+        - name: DATABASE_URL
+          value: "postgresql://postgres:postgres@postgres-db:5432/payment_db"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+  namespace: ecommerce-apps
+spec:
+  selector:
+    app: payment-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3005

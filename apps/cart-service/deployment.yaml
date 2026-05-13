@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-service
+  namespace: ecommerce-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-service
+  template:
+    metadata:
+      labels:
+        app: cart-service
+    spec:
+      containers:
+      - name: cart-service
+        image: 644981759771.dkr.ecr.us-east-1.amazonaws.com/prod-cart-service:latest
+        ports:
+        - containerPort: 3003
+        env:
+        - name: PORT
+          value: "3003"
+        - name: REDIS_URL
+          value: "redis://redis:6379"
+        - name: DATABASE_URL
+          value: "postgresql://postgres:postgres@postgres-db:5432/cart_db"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart-service
+  namespace: ecommerce-apps
+spec:
+  selector:
+    app: cart-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3003
