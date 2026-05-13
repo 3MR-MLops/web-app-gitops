@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 3mrlmlops/webapp-frontend:v6
+          image: 3mrlmlops/webapp-frontend:v7
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
