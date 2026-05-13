@@ -10,6 +10,8 @@ spec:
     repoURL: https://github.com/amr-elzoghby/web-app-gitops.git
     targetRevision: HEAD
     path: apps
+    directory:
+      recurse: true
 
   destination:
     server: https://kubernetes.default.svc
