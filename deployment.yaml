@@ -5,7 +5,7 @@
 # ── Frontend ──────────────────────────────────────────────────────────────────
 frontend:
   image: webapp-frontend
-  tag: "v17"
+  tag: "v2"
 
 # ── Backend Microservices ────────────────────────────────────────────────────
 user-service:
@@ -18,7 +18,7 @@ catalog-service:
 
 cart-service:
   image: webapp-cart-service
-  tag: "v1"
+  tag: "v3"
 
 order-service:
   image: webapp-order-service
@@ -26,4 +26,4 @@ order-service:
 
 payment-service:
   image: webapp-payment-service
-  tag: "v1"
+  tag: "v2"
